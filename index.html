@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VocabBlast — Luyện Từ Vựng</title>
+  <meta name="description" content="Ứng dụng luyện từ vựng tiếng Anh siêu tốc với hai chế độ học thú vị." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════ APP WRAPPER ══════════ -->
+  <div id="app">
+
+    <!-- Ambient blobs background -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- ── SCREEN: INTRO ── -->
+    <div id="screen-intro" class="screen active">
+      <div class="intro-card glass">
+        <div class="logo-icon">⚡</div>
+        <h1 class="intro-title">VocabBlast</h1>
+        <p class="intro-sub">Luyện từ vựng siêu tốc, siêu vui</p>
+        <div class="intro-stats">
+          <div class="stat-pill"><span id="total-count">0</span> từ vựng</div>
+          <div class="stat-pill">2 chế độ học</div>
+        </div>
+        <button id="btn-start" class="btn btn-primary btn-lg pulse">Bắt đầu!</button>
+      </div>
+    </div>
+
+    <!-- ── SCREEN: QUIZ ── -->
+    <div id="screen-quiz" class="screen">
+
+      <!-- Top bar -->
+      <div class="top-bar">
+        <div class="progress-info">
+          <span id="progress-text">1 / 15</span>
+          <span id="mode-badge" class="mode-badge">⌨️ Gõ Từ</span>
+        </div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Main card -->
+      <div id="quiz-card" class="quiz-card glass">
+
+        <!-- Meaning display -->
+        <div class="meaning-area">
+          <p class="meaning-label">Nghĩa của từ</p>
+          <div id="meaning-display" class="meaning-display">—</div>
+        </div>
+
+        <!-- ── Mode 1: Input ── -->
+        <div id="mode-input" class="mode-panel">
+          <div class="input-wrapper">
+            <input
+              id="word-input"
+              class="word-input"
+              type="text"
+              placeholder="Gõ từ tiếng Anh vào đây…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+          <div id="feedback-msg" class="feedback-msg"></div>
+          <div class="btn-row">
+            <button id="btn-check" class="btn btn-primary">✔ Kiểm tra</button>
+            <button id="btn-skip-input" class="btn btn-ghost">⏭ Bỏ qua</button>
+          </div>
+        </div>
+
+        <!-- ── Mode 2: Scramble ── -->
+        <div id="mode-scramble" class="mode-panel hidden">
+          <div id="assembled-area" class="assembled-area">
+            <p class="assembled-hint">Nhấp chữ cái để ghép từ 👇</p>
+            <div id="assembled-slots" class="assembled-slots"></div>
+          </div>
+          <div id="scramble-tiles" class="scramble-tiles"></div>
+          <div id="scramble-feedback" class="feedback-msg"></div>
+          <div class="btn-row">
+            <button id="btn-skip-scramble" class="btn btn-ghost">⏭ Bỏ qua</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SCREEN: RESULT ── -->
+    <div id="screen-result" class="screen">
+      <div class="result-card glass">
+        <div class="result-icon">🎉</div>
+        <h2 class="result-title">Hoàn thành rồi!</h2>
+        <p class="result-sub">Bạn đã ôn xong tất cả từ vựng hôm nay.</p>
+        <div class="score-display">
+          <span id="score-val">0</span>
+          <span class="score-label">điểm</span>
+        </div>
+        <button id="btn-restart" class="btn btn-primary btn-lg">🔄 Học lại</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts — data.js phải load trước app.js -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
