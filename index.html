@@ -37,11 +37,21 @@
     <!-- ── SCREEN: QUIZ ── -->
     <div id="screen-quiz" class="screen">
 
+      <!-- Tab bar -->
+      <div class="tab-bar">
+        <button id="tab-learn" class="tab-btn active" onclick="switchTab('learn')">
+          📖 Học
+        </button>
+        <button id="tab-test" class="tab-btn" onclick="switchTab('test')">
+          ✏️ Kiểm tra
+        </button>
+      </div>
+
       <!-- Top bar -->
       <div class="top-bar">
         <div class="progress-info">
           <span id="progress-text">1 / 15</span>
-          <span id="mode-badge" class="mode-badge">⌨️ Gõ Từ</span>
+          <span id="mode-badge" class="mode-badge">🔠 Trắc Nghiệm</span>
         </div>
         <div class="progress-track">
           <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
@@ -53,12 +63,21 @@
 
         <!-- Meaning display -->
         <div class="meaning-area">
-          <p class="meaning-label">Nghĩa của từ</p>
+          <p class="meaning-label" id="question-label">Nghĩa của từ</p>
           <div id="meaning-display" class="meaning-display">—</div>
         </div>
 
+        <!-- ── Mode MC: Multiple Choice ── -->
+        <div id="mode-mc" class="mode-panel">
+          <div id="mc-options" class="mc-options"></div>
+          <div id="mc-feedback" class="feedback-msg"></div>
+          <div class="btn-row">
+            <button id="btn-skip-mc" class="btn btn-ghost">⏭ Bỏ qua</button>
+          </div>
+        </div>
+
         <!-- ── Mode 1: Input ── -->
-        <div id="mode-input" class="mode-panel">
+        <div id="mode-input" class="mode-panel hidden">
           <div class="input-wrapper">
             <input
               id="word-input"
